@@ -33,10 +33,10 @@ if uploaded_file is not None:
 		# Loop items in results
 		for page in df['Address']:
 			response = natural_language_understanding.analyze(
-			url= page,
-		        features=Features(concepts=ConceptsOptions(limit=1))).get_result()
-		 if response is not None:
-			concepts.append(response)
+				url= page,
+				features=Features(concepts=ConceptsOptions(limit=1))).get_result()
+			if response is not None:
+				concepts.append(response)
 			
 		df_concepts_full = pd.json_normalize(concepts)
 		df_concepts_full['concepts'] = pd.json_normalize(df_concepts_full['concepts'])

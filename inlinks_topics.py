@@ -1,7 +1,3 @@
-!pip install  "ibm-watson>=5.0.0"
-!pip install  PyJWT==1.7.1
-!pip install plotly==4.5
-
 import pandas as pd
 import plotly.express as px
 import numpy as np

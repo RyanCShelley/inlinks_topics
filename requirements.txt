@@ -1,0 +1,3 @@
+plotly
+PyJWT==1.7.1
+ibm-watson>=5.0.0

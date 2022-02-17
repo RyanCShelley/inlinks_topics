@@ -46,8 +46,14 @@ df_concepts_full['concepts'] = pd.json_normalize(df_concepts_full['concepts'])
 df_concepts_full = pd.concat([df_concepts_full[['retrieved_url']], pd.json_normalize(df_concepts_full['concepts'])], axis=1)
 st.dataframe(df_concepts_full)
 
+def convert_df(df):
+     # IMPORTANT: Cache the conversion to prevent computation on every rerun
+     return df.to_csv().encode('utf-8')
+
+csv = convert_df(df_concepts_full)
+
 st.download_button(
      label='Download data as CSV',
-     data=df_concepts_full,
+     data=csv,
      file_name='inlinks_topics.csv',
  )

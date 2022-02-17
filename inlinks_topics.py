@@ -47,8 +47,7 @@ df_concepts_full = pd.concat([df_concepts_full[['retrieved_url']], pd.json_norma
 st.dataframe(df_concepts_full)
 
 st.download_button(
-     label="Download data as CSV",
+     label='Download data as CSV',
      data=df_concepts_full,
      file_name='inlinks_topics.csv',
-     mime='text/csv',
  )

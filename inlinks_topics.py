@@ -35,7 +35,7 @@ if uploaded_file is not None:
 			response = natural_language_understanding.analyze(
 			url= page,
 		        features=Features(concepts=ConceptsOptions(limit=1))).get_result()
-		if response is not None:
+		 if response is not None:
 			concepts.append(response)
 			
 		df_concepts_full = pd.json_normalize(concepts)
@@ -43,6 +43,7 @@ if uploaded_file is not None:
 		df_concepts_full = pd.concat([df_concepts_full[['retrieved_url']], pd.json_normalize(df_concepts_full['concepts'])], axis=1)
 		st.dataframe(df_concepts_full)
 		
+		@st.cache
 		def convert_df(df):
                    # IMPORTANT: Cache the conversion to prevent computation on every rerun
 		   return df.to_csv().encode('utf-8')
